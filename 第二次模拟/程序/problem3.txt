@@ -1,0 +1,26 @@
+model:
+sets:
+k/1..3/:s;
+n/1..2/:t;
+pay(k,n):M;
+endsets
+
+data:
+M=-3 4
+  4 -3
+  1 3;
+enddata
+
+!max=a;
+!@for(n(j):
+    a<@sum(k(i):s(i)*m(i,j));
+!);
+
+!@sum(k:s)=1;
+
+max = a;
+@for(k(j):
+a<@sum( n(i):t(i)*m(j,i) );
+);
+@sum(n:t)=1;
+End
